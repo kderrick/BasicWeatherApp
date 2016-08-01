@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TheWeatherApp</string>
+    <string name="error_title">Oops! Sorry</string>
+    <string name="error_message">There was an error. Please try again</string>
+    <string name="error_okButton">OK</string>
 </resources>

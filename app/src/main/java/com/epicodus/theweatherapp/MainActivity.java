@@ -1,5 +1,6 @@
 package com.epicodus.theweatherapp;
 
+import android.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,14 +42,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 try {
-
+                    Log.v(TAG, response.body().string());
                     if(response.isSuccessful()) {
-                        Log.v(TAG, response.body().string());
+
+                    }
+                    else {
+                        alertUserAboutError();
                     }
                 } catch (IOException e) {
                     Log.e(TAG, "Exception caught: ", e);
                 }
             }
         });
+        Log.d(TAG, "Main UI code is running");
+    }
+
+    private void alertUserAboutError() {
+        AlertDialogueFragment dialogue = new AlertDialogueFragment();
+        dialogue.show(getFragmentManager(), "error_dialogue");
+
     }
 }
