@@ -7,10 +7,25 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.epicodus.theweatherapp.MainActivity">
+    tools:context="com.epicodus.theweatherapp.MainActivity"
+    android:background="#FC970B">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="100"
+        android:id="@+id/temperatureTextView"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:textSize="150sp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/degreeImageView"
+        android:src="@mipmap/degree"
+        android:layout_alignTop="@+id/temperatureTextView"
+        android:layout_toRightOf="@+id/temperatureTextView"
+        android:layout_marginTop="50dp" />
 </RelativeLayout>
