@@ -28,4 +28,34 @@
         android:layout_alignTop="@+id/temperatureTextView"
         android:layout_toRightOf="@+id/temperatureTextView"
         android:layout_marginTop="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="At 5:00PM It will be"
+        android:id="@+id/timeTextView"
+        android:textColor="#80ffffff"
+        android:layout_above="@+id/degreeImageView"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alcatraz Island, CA"
+        android:id="@+id/locationTextView"
+        android:layout_above="@+id/timeTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/iconImageView"
+        android:layout_alignBottom="@+id/locationTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@mipmap/cloudy_night" />
 </RelativeLayout>
