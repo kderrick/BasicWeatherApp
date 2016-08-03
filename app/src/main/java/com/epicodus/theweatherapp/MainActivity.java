@@ -2,8 +2,11 @@ package com.epicodus.theweatherapp;
 
 import android.app.DialogFragment;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -69,6 +72,12 @@ public class MainActivity extends AppCompatActivity {
                         Log.v(TAG, jsonData);
                         if (response.isSuccessful()) {
                             mCurrentWeather = getCurrentDetails(jsonData);
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    updateDisplay();
+                                }
+                            });
 
                         } else {
                             alertUserAboutError();
@@ -87,6 +96,18 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.networkUnavailable_message, Toast.LENGTH_LONG).show();
         }
         Log.d(TAG, "Main UI code is running");
+    }
+
+    private void updateDisplay() {
+        mTemperatureLabel.setText(mCurrentWeather.getTemperature() + "");
+        mTimeTextView.setText("At " + mCurrentWeather.getTime() + "it will be");
+        mHumidityValue.setText(mCurrentWeather.getHumidity() + "");
+        mPrecipValue.setText(mCurrentWeather.getPrecipChance() + "%");
+        mSummaryLabel.setText(mCurrentWeather.getSummary());
+
+        Drawable drawable = ContextCompat.getDrawable(this, mCurrentWeather.getIconId());
+        mIconImageView.setImageDrawable(drawable);
+
     }
 
     private CurrentWeather getCurrentDetails(String jsonData) throws JSONException {

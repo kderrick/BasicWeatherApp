@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="100"
+        android:text="--"
         android:id="@+id/temperatureTextView"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
@@ -32,7 +32,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="At 5:00PM It will be"
+        android:text="..."
         android:id="@+id/timeTextView"
         android:textColor="#80ffffff"
         android:layout_above="@+id/degreeImageView"
@@ -86,7 +86,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0.88"
+                android:text="--"
                 android:id="@+id/humiditValueTextView"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
@@ -110,7 +110,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="100%"
+                android:text="--"
                 android:id="@+id/precipValueTextview"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
@@ -121,7 +121,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Stormy with a chance of meatballs"
+        android:text="Getting current weather..."
         android:id="@+id/summaryTextView"
         android:layout_below="@+id/linearLayout"
         android:layout_centerHorizontal="true"
