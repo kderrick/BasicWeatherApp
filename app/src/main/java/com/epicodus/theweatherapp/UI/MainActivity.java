@@ -17,8 +17,11 @@ import android.widget.Toast;
 
 import com.epicodus.theweatherapp.R;
 import com.epicodus.theweatherapp.weather.Current;
+import com.epicodus.theweatherapp.weather.Day;
 import com.epicodus.theweatherapp.weather.Forecast;
+import com.epicodus.theweatherapp.weather.Hour;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -163,9 +166,38 @@ public class MainActivity extends AppCompatActivity {
 
     private Forecast parseForecastDetails(String jsonData) throws JSONException {
         Forecast forecast = new Forecast();
+
         forecast.setCurrent(getCurrentDetails(jsonData));
+        forecast.setHourlyForecast(getHourlyForecast(jsonData));
+        forecast.setDailyForecast(getDailyForecast(jsonData));
 
         return forecast;
+    }
+
+    private Day[] getDailyForecast(String jsonData) {
+        return new Day[0];
+    }
+
+    private Hour[] getHourlyForecast(String jsonData) throws JSONException {
+        JSONObject forecast = new JSONObject(jsonData);
+        String timezone = forecast.getString("timezone");
+        JSONObject hourly = forecast.getJSONObject("hourly");
+        JSONArray data = hourly.getJSONArray("data");
+
+        Hour[] hours = new Hour[data.length()];
+        for(int i = 0; i < data.length(); i++) {
+            JSONObject jsonHour = data.getJSONObject(i);
+            Hour hour = new Hour();
+            hour.setSummary(jsonHour.getString("summary"));
+            hour.setTemperature(jsonHour.getDouble("temperature"));
+            hour.setIcon(jsonHour.getString("icon"));
+            hour.setTime(jsonHour.getLong("time"));
+            hour.setTimezone(timezone);
+
+            hours[i] = hour;
+        }
+
+        return hours;
     }
 
     private Current getCurrentDetails(String jsonData) throws JSONException {
