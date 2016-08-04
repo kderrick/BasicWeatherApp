@@ -4,4 +4,5 @@
     <string name="error_message">There was an error. Please try again</string>
     <string name="error_okButton">OK</string>
     <string name="networkUnavailable_message">Network is unavailable</string>
+    <string name="no_daily_forecast_data">There is no data to display</string>
 </resources>
