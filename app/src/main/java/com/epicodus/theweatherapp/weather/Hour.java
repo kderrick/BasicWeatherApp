@@ -1,4 +1,4 @@
-package com.epicodus.theweatherapp;
+package com.epicodus.theweatherapp.weather;
 
 public class Hour {
 

@@ -1,10 +1,12 @@
-package com.epicodus.theweatherapp;
+package com.epicodus.theweatherapp.UI;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
+
+import com.epicodus.theweatherapp.R;
 
 public class AlertDialogueFragment extends DialogFragment {
 
