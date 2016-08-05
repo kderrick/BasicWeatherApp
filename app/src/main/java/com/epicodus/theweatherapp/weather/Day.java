@@ -1,5 +1,9 @@
 package com.epicodus.theweatherapp.weather;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 public class Day {
     private long mTime;
     private String mSummary;
@@ -23,8 +27,9 @@ public class Day {
         this.mSummary = mSummary;
     }
 
-    public double getTemperatureMax() {
-        return mTemperatureMax;
+    public int getTemperatureMax() {
+
+        return (int)Math.round(mTemperatureMax);
     }
 
     public void setTemperatureMax(double mTemperatureMax) {
@@ -46,4 +51,18 @@ public class Day {
     public void setTimezone(String mTimezone) {
         this.mTimezone = mTimezone;
     }
+
+    public int getIconId() {
+        return Forecast.getIconId(mIcon);
+    }
+
+
+
+    public String getDayOfTheWeek() {
+        SimpleDateFormat formatter = new SimpleDateFormat("EEEE");
+        formatter.setTimeZone(TimeZone.getTimeZone(mTimezone));
+        Date dateTime = new Date(mTime * 1000);
+        return formatter.format(dateTime);
+    }
+
 }
