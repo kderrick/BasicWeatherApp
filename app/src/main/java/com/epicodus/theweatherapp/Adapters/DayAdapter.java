@@ -57,9 +57,13 @@ public class DayAdapter extends BaseAdapter {
         Day day = mDays[position];
         holder.iconImageView.setImageResource(day.getIconId());
         holder.temperatureLabelTextView.setText(day.getTemperatureMax() + "");
-        holder.dayLabelTextView.setText(day.getDayOfTheWeek());
+        //This sets the current day from day of the week to "Today"
+        if(position == 0) {
 
-
+            holder.dayLabelTextView.setText("Today");
+        } else {
+            holder.dayLabelTextView.setText(day.getDayOfTheWeek());
+        }
 
         return convertView;
     }
