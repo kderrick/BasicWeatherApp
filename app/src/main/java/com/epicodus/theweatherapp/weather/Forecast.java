@@ -1,11 +1,16 @@
 package com.epicodus.theweatherapp.weather;
 
+import android.util.Log;
+
 import com.epicodus.theweatherapp.R;
+import com.epicodus.theweatherapp.UI.MainActivity;
 import com.epicodus.theweatherapp.weather.Current;
 import com.epicodus.theweatherapp.weather.Day;
 import com.epicodus.theweatherapp.weather.Hour;
 
 public class Forecast {
+
+    public static final String TAG = Forecast.class.getSimpleName();
 
     private Current mCurrent;
     private Hour[] mHourlyForecast;
@@ -69,6 +74,7 @@ public class Forecast {
         else if (iconString.equals("partly-cloudy-night")) {
             iconId = R.mipmap.cloudy_night;
         }
+        Log.d(TAG, iconId + ": THIS SHOULD NOT BE NULL BUT IT MAY BE" );
         return iconId;
     }
 }
