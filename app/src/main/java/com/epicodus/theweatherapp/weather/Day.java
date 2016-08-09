@@ -59,8 +59,8 @@ public class Day implements Parcelable {
     }
 
     public int getIconId() {
-        Log.d(TAG, Forecast.getIconId(mIcon) + "");
-        return Forecast.getIconId(mIcon);
+        Log.d(TAG, Forecast.getIconId(mIcon) + "This is Forecast.getIconId(mIcon) in getIconId() on Day.Java");
+        return Forecast.getIconId(mIcon + "");
     }
 
 

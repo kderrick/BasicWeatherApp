@@ -43,6 +43,7 @@ public class Forecast {
     public static int getIconId(String iconString) {
 
         int iconId = R.mipmap.clear_day;
+        Log.d(TAG, iconString + " THIS IS iconString on Forecast.Java class before the if statement in getIconId");
 
         if (iconString.equals("clear-day")) {
             iconId = R.mipmap.clear_day;
