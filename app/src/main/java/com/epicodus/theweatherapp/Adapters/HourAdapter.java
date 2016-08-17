@@ -1,6 +1,7 @@
 package com.epicodus.theweatherapp.Adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -11,19 +12,27 @@ import com.epicodus.theweatherapp.weather.Hour;
 
 public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewholder> {
 
+    private Hour[] mHours;
+    public HourAdapter(Hour[] hours){
+        mHours = hours;
+
+    }
+
     @Override
     public HourViewholder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.hourly_list_item, parent, false);
+        HourViewholder viewholder = new HourViewholder(view);
+        return viewholder;
     }
 
     @Override
     public void onBindViewHolder(HourViewholder holder, int position) {
-
+        holder.bindHour(mHours[position]);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mHours.length;
     }
 
     public class HourViewholder extends RecyclerView.ViewHolder {
@@ -42,6 +51,10 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewholder
         }
 
         public void bindHour(Hour hour) {
+            mTimeLabel.setText(hour.getHour());
+            mSummaryLabel.setText(hour.getSummary());
+            mTemperatureLabel.setText(hour.getTemperature() + "");
+            mIconImageView.setImageResource(hour.getIconId());
 
         }
     }
