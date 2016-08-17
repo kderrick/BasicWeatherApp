@@ -3,6 +3,9 @@ package com.epicodus.theweatherapp.weather;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Hour implements Parcelable {
 
     private long mTime;
@@ -29,8 +32,8 @@ public class Hour implements Parcelable {
         this.mSummary = mSummary;
     }
 
-    public double getTemperature() {
-        return mTemperature;
+    public int getTemperature() {
+        return (int) Math.round(mTemperature);
     }
 
     public void setTemperature(double mTemperature) {
@@ -39,6 +42,10 @@ public class Hour implements Parcelable {
 
     public String getIcon() {
         return mIcon;
+    }
+
+    public int getIconId() {
+        return Forecast.getIconId(mIcon);
     }
 
     public void setIcon(String mIcon) {
@@ -51,6 +58,13 @@ public class Hour implements Parcelable {
 
     public void setTimezone(String mTimezone) {
         this.mTimezone = mTimezone;
+    }
+
+
+    public String getHour() {
+        SimpleDateFormat formatter = new SimpleDateFormat("h a");
+        Date date = new Date(mTime * 1000);
+        return formatter.format(date);
     }
 
     @Override
